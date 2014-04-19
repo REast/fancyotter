@@ -33,6 +33,7 @@ a {
 
 html {
 	height: 100%;
+	overflow-y: scroll;
 }
 
 body {
@@ -246,8 +247,7 @@ p {
 	z-index: 5;
 }
 
-.linkIos,
-.linkDroid {
+.linkOn {
 	margin: -38px 8% 0px 8%;
 	width: 7em;
 	height: 2em;	
@@ -256,7 +256,16 @@ p {
 	cursor: pointer;
 }
 
-.linkIos {
+.linkOff {
+	display: none;
+}
+
+#iosLink {
+	color:#e0faff;
+	font-weight: bold;
+	font-size: 1.15em;
+	line-height: 1.8em;
+
 	background: -webkit-linear-gradient(#49c, #38a); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#49c, #38a); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(#49c, #38a); /* For Firefox 3.6 to 15 */
@@ -265,7 +274,12 @@ p {
 	float: left;
 }
 
-.linkDroid {
+#droidLink {
+	color:#faffe0;
+	font-weight: bold;
+	font-size: 1.15em;
+	line-height: 1.8em;
+
 	background: -webkit-linear-gradient(#9c0, #8b0); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#9c0, #8b0); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(#9c0, #8b0); /* For Firefox 3.6 to 15 */
@@ -274,32 +288,18 @@ p {
 	float: right;
 }
 
-.linkIos:hover {
+#iosLink:hover {
 	background: -webkit-linear-gradient(#5ad, #49c); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#5ad, #49c); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(#5ad, #49c); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#5ad, #49c); /* Standard syntax */
 }
 
-.linkDroid:hover {
+#droidLink:hover {
 	background: -webkit-linear-gradient(#ad0, #9c0); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#ad0, #9c0); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(#ad0, #9c0); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#ad0, #9c0); /* Standard syntax */
-}
-
-#droidLink {
-	color:#faffe0;
-	font-weight: bold;
-	font-size: 1.15em;
-	line-height: 1.8em;
-}
-
-#iosLink {
-	color:#e0faff;
-	font-weight: bold;
-	font-size: 1.15em;
-	line-height: 1.8em;
 }
 
 

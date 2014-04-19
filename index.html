@@ -6,6 +6,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link rel="icon" type="image/png" href="icon.png">
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<!-- // internal script cause I'm bad -->
 	<script type="text/javascript"> 
 	
 	// variables used for adjusting html attributes and text
@@ -107,7 +109,9 @@
 		// set the links based on whether the app supports that platform and screenshots with proper sizing based on portrait or landscape
 		if (index === 0)
 		{
-			document.getElementById('iosLink').setAttribute("onclick", 'coming soon');
+			document.getElementById('iosLink').setAttribute("class", 'linkOff');
+			
+			document.getElementById('droidLink').setAttribute("class", 'linkOn');
 			document.getElementById('droidLink').setAttribute("onclick", "window.open('https://play.google.com/store/apps/details?id=com.FancyOtter.seasons');");
 
 			document.getElementById('screenA').setAttribute("class","screenshotHalf");
@@ -119,7 +123,10 @@
 
 		else if (index == 1)
 		{
+			document.getElementById('iosLink').setAttribute("class", 'linkOn');
 			document.getElementById('iosLink').setAttribute("onclick", "window.open('https://itunes.apple.com/us/app/beepum/id811696754?ls=1&mt=8');");
+
+			document.getElementById('droidLink').setAttribute("class", 'linkOn');
 			document.getElementById('droidLink').setAttribute("onclick", "window.open('https://play.google.com/store/apps/details?id=com.FancyOtter.BeePuM');");
 
 			document.getElementById('screenA').setAttribute("class","screenshotThird");
@@ -132,7 +139,10 @@
 
 		else if (index == 2)
 		{
+			document.getElementById('iosLink').setAttribute("class", 'linkOn');
 			document.getElementById('iosLink').setAttribute("onclick", "window.open('https://itunes.apple.com/us/app/saving-timmy/id817257884?ls=1&mt=8');");
+
+			document.getElementById('droidLink').setAttribute("class", 'linkOn');
 			document.getElementById('droidLink').setAttribute("onclick", "window.open('https://play.google.com/store/apps/details?id=com.FancyOtter.SavingTimmy');");
 
 			document.getElementById('screenA').setAttribute("class","screenshotThird");
@@ -146,6 +156,7 @@
 
 	</script>
 </head>
+
 
 <body onload="SetAppInfo(0)">
 	<div id="total-wrap">
@@ -162,19 +173,19 @@
 				    <img class='imgSquare' id='iconE' src='https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/PlaceholderIcon.png' />
 				</div>
 				<div class='appLineArea'>				
-					<div id='appLineLL' class='appLineOn'></div>
+					<div id='appLineLL' class='appLineOff'></div>
 					<div id='appLineL' class='appLineOff'></div>
 					<div id='appLineM' class='appLineOff'></div>
 					<div id='appLineR' class='appLineOff'></div>
 					<div id='appLineRR' class='appLineOff'></div>
-					<div id='appLineLower' class='appLineOn'></div>
+					<div id='appLineLower' class='appLineOff'></div>
 				</div>
 
 				<br />			
 				<div class="aboutBox">	
 					<div class='gameNameBox'><span id="gameName">Select an app</span></div>
-					<button id="iosLink" class="linkIos" onclick="location.href='http://www.example.com'">iOS</button>
-					<button id="droidLink" class="linkDroid" onclick="location.href='http://www.example.com'">ANDROID</button>
+					<button id="iosLink" class="linkOff" onclick="location.href='http://www.example.com'">iOS</button>
+					<button id="droidLink" class="linkOff" onclick="location.href='http://www.example.com'">ANDROID</button>
 				</div>
 		    	<div class="aboutInner">
 				    <p id="gameDescription"> Select an app from the gallery above to view screenshots and available platforms. </p>				
