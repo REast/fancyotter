@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>FancyOtter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="icon" type="image/png" href="icon.png">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript"> 
+	
+	// variables used for adjusting html attributes and text
+	var platformLinkArr = ["iosLink", "droidLink"];
+	var platformTextArr = ["iOS", "ANDROID"];
+	var screenIdArr = ["screenA", "screenB", "screenC"];
+
+	// preload images
+	if (document.images) {
+	    img1 = new Image();
+	    img1.src = "https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSeasonShift/ScreenA.png";
+	    img2 = new Image();
+    	img2.src = "https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSeasonShift/ScreenB.png";
+    	img3 = new Image();
+    	img3.src = "https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppBeepum/ScreenA.png";
+    	img4 = new Image();
+		img4.src = "https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppBeepum/ScreenB.png";
+		img5 = new Image();
+		img5.src = "https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppBeepum/ScreenC.png";
+		img6 = new Image();
+		img6.src = "https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSavingTimmy/ScreenA.png";
+		img7 = new Image();
+		img7.src = "https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSavingTimmy/ScreenB.png";
+		img8 = new Image();
+		img8.src = "https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSavingTimmy/ScreenC.png";
+	}
+
+	// define app object
+	var AppObj = function (selectorId, appTitle, appDescription, storeLinks, screenshots) {
+		this.selectorId = selectorId;
+		this.appTitle= appTitle;
+		this.appDescription = appDescription;
+		this.storeLinks = storeLinks;
+		this.screenshots = screenshots;
+	};
+
+	// array of app objects
+	var AppArr = new Array();
+
+	AppArr[0] = new AppObj( "selectorOne", "Season Shift", "Help a lost groundhog find his way back home with the use of his season altering powers!", 
+		["", 
+			"https://play.google.com/store/apps/details?id=com.FancyOtter.seasons"], 
+		["https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSeasonShift/ScreenA.png", 
+			"https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSeasonShift/ScreenB.png"] );
+	AppArr[1] = new AppObj( "selectorTwo", "BeePuM", "Race through an infinite number of randomly generated, brightly colored guantlets!",
+		["https://itunes.apple.com/us/app/beepum/id811696754?ls=1&mt=8", 
+			"https://play.google.com/store/apps/details?id=com.FancyOtter.BeePuM"], 
+		["https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppBeepum/ScreenA.png", 
+			"https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppBeepum/ScreenB.png", 
+			"https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppBeepum/ScreenC.png"] );
+	AppArr[2] = new AppObj( "selectorThree", "Saving Timmy", "Test your reactions as you fight to keep Timmy's body protected from deadly infections!",
+		["https://itunes.apple.com/us/app/saving-timmy/id817257884?ls=1&mt=8", 
+			"https://play.google.com/store/apps/details?id=com.FancyOtter.SavingTimmy"], 
+		["https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSavingTimmy/ScreenA.png", 
+			"https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSavingTimmy/ScreenB.png", 
+			"https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSavingTimmy/ScreenC.png"] );
+
+	var SetAppInfo = function (index) {
+
+		// set the appropriate name, description
+		document.getElementById("gameName").innerHTML = AppArr[index].appTitle + " ";
+		document.getElementById("gameDescription").innerHTML = AppArr[index].appDescription;
+
+		// set the proper square highlighting and selector lines
+		document.getElementById('appLineLL').setAttribute("class", "appLineOff");
+		document.getElementById('appLineL').setAttribute("class", "appLineOff");
+		document.getElementById('appLineM').setAttribute("class", "appLineOff");
+		document.getElementById('appLineR').setAttribute("class", "appLineOff");
+		document.getElementById('appLineRR').setAttribute("class", "appLineOff");
+		document.getElementById('appLineLower').setAttribute("class", "appLineOff");
+
+		document.getElementById('iconA').setAttribute("class","imgSquare");
+		document.getElementById('iconB').setAttribute("class","imgSquare");
+		document.getElementById('iconC').setAttribute("class","imgSquare");
+		document.getElementById('iconD').setAttribute("class","imgSquare");
+		document.getElementById('iconE').setAttribute("class","imgSquare");
+
+		// set the selected icon based on index
+		if (index === 0) {
+			document.getElementById('appLineLL').setAttribute("class", "appLineOn");
+			document.getElementById('appLineLower').setAttribute("class", "appLineOn");
+
+			document.getElementById('iconA').setAttribute("class","imgSquareSelected");
+		}
+		else if (index === 1) {
+			document.getElementById('appLineL').setAttribute("class", "appLineOn");
+			document.getElementById('appLineLower').setAttribute("class", "appLineOn");
+
+			document.getElementById('iconB').setAttribute("class","imgSquareSelected");
+		}
+		else if (index === 2) {
+			document.getElementById('appLineM').setAttribute("class", "appLineOn");
+			document.getElementById('appLineLower').setAttribute("class", "appLineOn");
+
+			document.getElementById('iconC').setAttribute("class","imgSquareSelected");
+		}
+			
+		
+		// set the links based on whether the app supports that platform and screenshots with proper sizing based on portrait or landscape
+		if (index === 0)
+		{
+			document.getElementById('iosLink').setAttribute("onclick", 'coming soon');
+			document.getElementById('droidLink').setAttribute("onclick", "window.open('https://play.google.com/store/apps/details?id=com.FancyOtter.seasons');");
+
+			document.getElementById('screenA').setAttribute("class","screenshotHalf");
+			document.getElementById('screenA').setAttribute("src","https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSeasonShift/ScreenA.png"); 
+			document.getElementById('screenB').setAttribute("class","screenshotHalf");
+			document.getElementById('screenB').setAttribute("src","https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSeasonShift/ScreenB.png");
+			document.getElementById('screenC').setAttribute("class","screenshotEmpty");
+		}
+
+		else if (index == 1)
+		{
+			document.getElementById('iosLink').setAttribute("onclick", "window.open('https://itunes.apple.com/us/app/beepum/id811696754?ls=1&mt=8');");
+			document.getElementById('droidLink').setAttribute("onclick", "window.open('https://play.google.com/store/apps/details?id=com.FancyOtter.BeePuM');");
+
+			document.getElementById('screenA').setAttribute("class","screenshotThird");
+			document.getElementById('screenA').setAttribute("src","https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppBeepum/ScreenA.png"); 
+			document.getElementById('screenB').setAttribute("class","screenshotThird");
+			document.getElementById('screenB').setAttribute("src","https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppBeepum/ScreenB.png");
+			document.getElementById('screenC').setAttribute("class","screenshotThird");
+			document.getElementById('screenC').setAttribute("src","https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppBeepum/ScreenC.png");
+		}
+
+		else if (index == 2)
+		{
+			document.getElementById('iosLink').setAttribute("onclick", "window.open('https://itunes.apple.com/us/app/saving-timmy/id817257884?ls=1&mt=8');");
+			document.getElementById('droidLink').setAttribute("onclick", "window.open('https://play.google.com/store/apps/details?id=com.FancyOtter.SavingTimmy');");
+
+			document.getElementById('screenA').setAttribute("class","screenshotThird");
+			document.getElementById('screenA').setAttribute("src","https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSavingTimmy/ScreenA.png"); 
+			document.getElementById('screenB').setAttribute("class","screenshotThird");
+			document.getElementById('screenB').setAttribute("src","https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSavingTimmy/ScreenB.png");
+			document.getElementById('screenC').setAttribute("class","screenshotThird");
+			document.getElementById('screenC').setAttribute("src","https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSavingTimmy/ScreenC.png");
+		}
+	}
+
+	</script>
+</head>
+
+<body onload="SetAppInfo(0)">
+	<div id="total-wrap">
+		<div id="main-wrap">
+	  		<div class="titleBox">
+		  		<h2 class="titleFront">Fancy<span class="titleB"> Otter</span></h2>
+	  		</div>
+		 	<div class="container">
+			    <div class ="gameGallery"> 
+			      	<img class='imgSquare' id='iconA' src='https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSeasonShift/Icon.png' onmousedown="SetAppInfo(0)" />
+				    <img class='imgSquare' id='iconB' src='https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppBeepum/Icon.png' onmousedown="SetAppInfo(1)" />
+				    <img class='imgSquare' id='iconC' src='https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSavingTimmy/Icon.png' onmousedown="SetAppInfo(2)" />
+				    <img class='imgSquare' id='iconD' src='https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/PlaceholderIcon.png' />
+				    <img class='imgSquare' id='iconE' src='https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/PlaceholderIcon.png' />
+				</div>
+				<div class='appLineArea'>				
+					<div id='appLineLL' class='appLineOn'></div>
+					<div id='appLineL' class='appLineOff'></div>
+					<div id='appLineM' class='appLineOff'></div>
+					<div id='appLineR' class='appLineOff'></div>
+					<div id='appLineRR' class='appLineOff'></div>
+					<div id='appLineLower' class='appLineOn'></div>
+				</div>
+
+				<br />			
+				<div class="aboutBox">	
+					<div class='gameNameBox'><span id="gameName">Select an app</span></div>
+					<button id="iosLink" class="linkIos" onclick="location.href='http://www.example.com'">iOS</button>
+					<button id="droidLink" class="linkDroid" onclick="location.href='http://www.example.com'">ANDROID</button>
+				</div>
+		    	<div class="aboutInner">
+				    <p id="gameDescription"> Select an app from the gallery above to view screenshots and available platforms. </p>				
+				  	<img class='screenshotHalf' id='screenA' src='https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSeasonShift/ScreenA.png' />  
+				  	<img class='screenshotHalf' id='screenB' src='https://googledrive.com/host/0ByrKDNQTxUj8eFllQ0RybDUyRVE/Images/AppSeasonShift/ScreenB.png' /> 
+				  	<img class='screenshotEmpty' id='screenC' src='null' />
+			  	</div>
+			  	<br />
+		  	</div>		
+		</div>
+	</div>
+</body>
+
+</html>
